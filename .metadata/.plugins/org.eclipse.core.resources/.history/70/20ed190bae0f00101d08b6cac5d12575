@@ -1,0 +1,31 @@
+package com.kwanwx.erp.service;
+
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.kwanwx.erp.mapper.UserMapper;
+import com.kwanwx.erp.model.User;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UserService {
+	private final UserMapper userMapper;
+	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	
+	public void registerUser(User user) {
+		// 비밀번호 암호화
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		
+		// 기본 역할 설정
+		if (user.getRole() == null) {
+			user.setRole("EMPLOYEE");
+		}
+		
+		// 사용자 등록
+		userMapper.insertUser(user);
+	}
+	
+}

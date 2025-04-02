@@ -1,0 +1,13 @@
+package com.kwanwx.erp.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class User {
+	private String userId; // 사용자 ID(Primary Key)
+	private String userName; // 로그인 ID
+	private String password; // 비밀번호
+	private String role; // 사용자 역할(관리자, 직원 등)
+}

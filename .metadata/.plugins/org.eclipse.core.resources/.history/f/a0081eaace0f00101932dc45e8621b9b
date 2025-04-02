@@ -1,0 +1,14 @@
+package com.kwanwx.erp.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.kwanwx.erp.model.User;
+
+@Mapper // MyBatis 인터페이스로 사용
+public interface UserMapper {
+	
+	User findByUserName(@Param("userName") String userName); // 특정 사용자 조회
+	
+	void insertUser(User user); // 새로운 사용자 등록
+}

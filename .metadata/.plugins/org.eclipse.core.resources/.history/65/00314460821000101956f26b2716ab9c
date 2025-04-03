@@ -21,7 +21,6 @@ public class JwtUtil {
 	
 	// JWT 토큰 생성
 	public static String generateToken(String userName, String role) {
-		
 		return Jwts.builder()
 				.setSubject(userName)
 				.claim("role", role)
@@ -43,7 +42,7 @@ public class JwtUtil {
 		return (String) getClaims(token).get("role");
 	}
 	
-	// 토큰 유효성 검증(사용자 이름 확인 및 만료 여부)
+	// 토큰 유효성 검증
 	public static boolean validateToken(String token, String userName) {
 		String extractedUserName = extractUserName(token);
 		

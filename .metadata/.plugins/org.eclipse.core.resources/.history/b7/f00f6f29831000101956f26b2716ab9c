@@ -1,9 +1,10 @@
 package com.kwanwx.erp.security;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.List;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -29,12 +30,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 				// JWT 토큰에서 userName 추출
 				String userName = JwtUtil.extractUserName(token);
 				String role = JwtUtil.extractUserRole(token);
-				
 				// 인증 정보가 없으면 SecurityContext에서 설정
 				if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-					String authority = "ROLE_" + role.toUpperCase();
 					UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-							userName, null, Collections.singleton(() -> authority));
+							userName, null, List.of(new SimpleGrantedAuthority("ROLE_USER"))); // ROLE_USER로 설정
 					SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 				}
 			} catch (Exception e) {

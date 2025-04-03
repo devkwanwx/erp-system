@@ -64,11 +64,11 @@ public class UserController {
 	
 	@GetMapping("/admin")
 	public ResponseEntity<?> adminEndpoint() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		boolean isAdmin = authentication.getAuthorities().stream().anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
+		// 현재 인증 정보를 가져와서 역할을 확인
+		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 		
-		// admin 사용자만 접근 허용
-		if (isAdmin) {
+		
+		if (userName.equalsIgnoreCase("ADMIN")) {
 			return ResponseEntity.ok("관리자 전용 데이터입니다.");
 		} else {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근이 거부되었습니다.");

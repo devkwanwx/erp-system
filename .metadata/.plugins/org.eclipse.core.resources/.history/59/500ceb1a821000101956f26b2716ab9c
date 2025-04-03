@@ -20,11 +20,9 @@ public class JwtUtil {
 	private static final long EXPIRATION_TIME = 60 * 60 * 1000;
 	
 	// JWT 토큰 생성
-	public static String generateToken(String userName, String role) {
-		
+	public static String generateToken(String userName) {
 		return Jwts.builder()
 				.setSubject(userName)
-				.claim("role", role)
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
 				.signWith(SECRET_KEY, SignatureAlgorithm.HS256)
@@ -37,13 +35,7 @@ public class JwtUtil {
 		return getClaims(token).getSubject();
 	}
 	
-	// 토큰에서 역할 추출
-	public static String extractUserRole(String token) {
-		
-		return (String) getClaims(token).get("role");
-	}
-	
-	// 토큰 유효성 검증(사용자 이름 확인 및 만료 여부)
+	// 토큰 유효성 검증
 	public static boolean validateToken(String token, String userName) {
 		String extractedUserName = extractUserName(token);
 		

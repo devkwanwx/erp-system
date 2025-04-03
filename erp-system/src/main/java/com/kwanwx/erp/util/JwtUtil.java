@@ -1,17 +1,20 @@
 package com.kwanwx.erp.util;
 
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Date;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import java.security.Key;
 
 public class JwtUtil {
 
 	// 비밀 키
-	private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+//	private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // 서버 재시작 시 새로운 키 생성
+	private static final String SECRET = "0123456789abcdef0123456789abcdef"; 
+	private static final Key SECRET_KEY = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
 	
 	// 토큰 유효 시간(1시간)
 	private static final long EXPIRATION_TIME = 60 * 60 * 1000;

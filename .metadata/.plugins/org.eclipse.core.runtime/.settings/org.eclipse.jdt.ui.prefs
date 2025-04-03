@@ -84,6 +84,7 @@ semanticHighlighting.typeArgument.enabled=true
 semanticHighlighting.typeParameter.bold=false
 semanticHighlighting.typeParameter.color=191,164,164
 semanticHighlighting.typeParameter.enabled=true
+smart_semicolon=true
 sourceHoverBackgroundColor=68,68,68
 spelling_locale_initialized=true
 typefilter_migrated_2=true

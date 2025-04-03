@@ -5,8 +5,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +55,18 @@ public class UserController {
 			return ResponseEntity.ok().body(Map.of("token", token));
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디 또는 비밀번호가 올바르지 않습니다.");
+		}
+	}
+	
+	@GetMapping("/me")
+	public ResponseEntity<?> getCurrentUser() {
+		// SecurityContextHolder에서 현재 인증된 사용자 정보 가져오기
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null && authentication.getPrincipal() != null) {
+			String userName = authentication.getPrincipal().toString();
+			return ResponseEntity.ok(Map.of("userName", userName));
+		} else {
+			return ResponseEntity.status(401).body("인증 정보가 없습니다.");
 		}
 	}
 }

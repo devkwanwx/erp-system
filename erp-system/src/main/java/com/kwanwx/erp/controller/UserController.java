@@ -5,24 +5,27 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.mapper.UserMapper;
 import com.kwanwx.erp.model.User;
 import com.kwanwx.erp.service.UserService;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/users") // 기본 URL
-@RequiredArgsConstructor
 public class UserController {
 
-	@Autowired
 	private final UserService userService;
+	
+	@Autowired
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/register") // 회원가입 API
@@ -32,14 +35,21 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest) { // JSON으로 받은 아이디/비밀번호를 Map으로 변환
+	public ResponseEntity<?> login(@RequestBody Map<String, String> loginRequest) { // JSON으로 받은 아이디/비밀번호를 Map으로 변환
 		String userName = loginRequest.get("userName");
 		String password = loginRequest.get("password");
 
-		boolean isAuthenticated = userService.login(userName, password);
-
-		if (isAuthenticated) {
-			return ResponseEntity.ok("로그인 성공");
+//		boolean isAuthenticated = userService.login(userName, password);
+//
+//		if (isAuthenticated) {
+//			return ResponseEntity.ok("로그인 성공");
+//		} else {
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디 또는 비밀번호가 올바르지 않습니다.");
+//		}
+		
+		String token = userService.login(userName, password);
+		if (token != null) {
+			return ResponseEntity.ok().body(Map.of("token", token));
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디 또는 비밀번호가 올바르지 않습니다.");
 		}

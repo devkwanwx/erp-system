@@ -9,16 +9,19 @@ import org.springframework.stereotype.Service;
 
 import com.kwanwx.erp.mapper.UserMapper;
 import com.kwanwx.erp.model.User;
-
-import lombok.RequiredArgsConstructor;
+import com.kwanwx.erp.util.JwtUtil;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 	
-	@Autowired
 	private final UserMapper userMapper;
-	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private final BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	public UserService(UserMapper userMapper, BCryptPasswordEncoder passwordEncoder) {
+		this.userMapper = userMapper;
+		this.passwordEncoder = passwordEncoder;
+	}
 	
 	public void registerUser(User user) {
 		// 비밀번호 암호화
@@ -37,9 +40,15 @@ public class UserService {
 		userMapper.insertUser(user);
 	}
 	
-	public boolean login(String userName, String password) {
+	// 로그인 성공 시 true 대신 JWT 토큰을 반환
+	public String login(String userName, String password) {
 		User user = userMapper.findByUserName(userName);
 		
-		return user != null && passwordEncoder.matches(password, user.getPassword());
+		if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+			
+			// JWT 토큰 발급
+			return JwtUtil.generateToken(userName);
+		}
+		return null; // 로그인 실패 시 null 변환
 	}
 }

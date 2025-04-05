@@ -17,4 +17,25 @@
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
 	</section>
+	<section name="WorkbenchPreferenceDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="651"/>
+		<item key="DIALOG_Y_ORIGIN" value="155"/>
+		<item key="DIALOG_WIDTH" value="682"/>
+		<item key="DIALOG_HEIGHT" value="708"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="3463"/>
+			<item value="165"/>
+			<item value="755"/>
+			<item value="527"/>
+		</list>
+		<list key="columns">
+			<item value="239"/>
+			<item value="480"/>
+		</list>
+	</section>
 </section>

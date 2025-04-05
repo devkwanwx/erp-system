@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis-org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kwanwx.erp.mapper.EmployeeMapper">
+
+	<!-- 직원 등록 -->
+	<insert id="insertEmployee" parameterType="com.kwanwx.erp.model.Employee">
+    	insert into erp_employee (employee_id, name, email, phone, hire_date, department_id)
+    	values (#{employeeId}, #{name}, #{email}, #{phone}, #{hireDate}, #{departmentId})
+	</insert>
+	
+	<!-- 직원 조회(단일) -->
+	<select id="selectEmployeeById" parameterType="string" resultType="com.kwanwx.erp.model.Employee">
+		select employee_id, name, email, phone, hire_date, department_id
+		from erp_employee
+		where employee_id = #{employeeId}
+	</select>
+	
+	<!-- 전체 직원 조회 -->
+	<select id="selectAllEmployees" resultType="com.kwanwx.erp.model.Employee">
+		select employee_id, name, email, phone, hire_date, department_id
+		from erp_employee
+	</select>
+	
+	<!-- 직원 정보 수정 -->
+	<update id="updateEmployee" parameterType="com.kwanwx.erp.model.Employee">
+		update erp_employee
+		set name = #{name},
+			email = #{email},
+			phone = #{phone},
+			hire_date = #{hireDate},
+			department_id = #{departmentId}
+		where employee_id = #{employeeId}
+	</update>
+	
+	<!-- 직원 삭제 -->
+	<delete id="deleteEmployee" parameterType="string">
+		delete from erp_employee
+		where employee_id = #{employeeId}
+	</delete>
+</mapper>

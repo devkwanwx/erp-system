@@ -1,0 +1,17 @@
+package com.kwanwx.erp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kwanwx.erp.mapper.EmployeeMapper;
+
+@Service
+public class EmployeeService {
+
+	private final EmployeeMapper employeeMapper;
+	
+	@Autowired
+	public EmployeeService(EmployeeMapper employeeMapper) {
+		this.employeeMapper = employeeMapper;
+	}
+}

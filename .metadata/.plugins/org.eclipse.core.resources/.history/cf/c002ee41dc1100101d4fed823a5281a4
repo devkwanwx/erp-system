@@ -1,0 +1,5 @@
+package com.kwanwx.erp.service;
+
+public class EmployeeService {
+
+}

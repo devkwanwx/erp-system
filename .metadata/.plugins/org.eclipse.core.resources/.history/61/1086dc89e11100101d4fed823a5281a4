@@ -1,0 +1,55 @@
+package com.kwanwx.erp.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kwanwx.erp.mapper.EmployeeMapper;
+import com.kwanwx.erp.model.Employee;
+
+@Service
+public class EmployeeService {
+
+	private final EmployeeMapper employeeMapper;
+	
+	@Autowired
+	public EmployeeService(EmployeeMapper employeeMapper) {
+		this.employeeMapper = employeeMapper;
+	}
+	
+	// 직원 등록
+	public void registerEmployee(Employee employee) {
+		if (employee.getEmployeeId() == null || employee.getEmployeeId().isEmpty()) {
+			employee.setEmployeeId(UUID.randomUUID().toString());
+		} // 직원 등록 시, employeeId가 없으면 UUID로 자동 생성
+		
+		employeeMapper.insertEmployee(employee);
+	}
+	
+	// 단일 직원 조회
+	public Employee getEmployeeById(String employeeId) {
+		return employeeMapper.selectEmployeeById(employeeId);
+	}
+	
+	// 전체 직원 조회
+	public List<Employee> getAllEmployees() {
+		return employeeMapper.selectAllEmployees();
+	}
+	
+	// 직원 정보 수정
+	public void updateEmployee(Employee employee) {
+		employeeMapper.updateEmployee(employee);
+	}
+	
+	// 직원 삭제
+	public void deleteEmployee(String employeeId) {
+		employeeMapper.deleteEmployee(employeeId);
+	}
+}
+
+
+
+
+

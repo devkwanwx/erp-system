@@ -22,14 +22,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 		// Authorization 헤더에서 "Bearer" 토큰 추출
 		String authorizationHeader = request.getHeader("Authorization");
-		
+
 		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 			String token = authorizationHeader.substring(7);
 			try {
 				// JWT 토큰에서 userName 추출
 				String userName = JwtUtil.extractUserName(token);
 				String role = JwtUtil.extractUserRole(token);
-				
+
 				// 인증 정보가 없으면 SecurityContext에서 설정
 				if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 					String authority = "ROLE_" + role.toUpperCase();

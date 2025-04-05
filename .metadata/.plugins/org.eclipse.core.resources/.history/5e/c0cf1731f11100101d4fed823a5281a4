@@ -1,0 +1,5 @@
+package com.kwanwx.erp.mapper;
+
+public interface InventoryMapper {
+
+}

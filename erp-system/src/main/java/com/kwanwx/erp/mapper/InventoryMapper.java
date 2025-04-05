@@ -1,0 +1,17 @@
+package com.kwanwx.erp.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.kwanwx.erp.model.Inventory;
+
+@Mapper
+public interface InventoryMapper {
+	void insertInventory(Inventory inventory);
+	Inventory selectInventoryById(@Param("inventoryId") String inventoryId);
+	List<Inventory> selectAllInventories();
+	void updateInventory(Inventory inventory);
+	void deleteInventory(@Param("inventoryId") String inventoryId);
+}	

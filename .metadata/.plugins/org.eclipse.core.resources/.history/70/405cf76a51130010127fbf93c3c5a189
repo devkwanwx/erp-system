@@ -1,0 +1,5 @@
+package com.kwanwx.erp.model;
+
+public class Sales {
+
+}

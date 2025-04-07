@@ -19,8 +19,11 @@ public class SecurityConfig {
 		http
 			.csrf(csrf -> csrf.disable()) // CSRF 비활성화(테스트용)
 			.authorizeHttpRequests(auth -> auth
-					.requestMatchers("/users/**", "/employees/**", "/inventories/**").permitAll()
-					.anyRequest().authenticated()
+					// 특정 url만 권한 허용
+//					.requestMatchers("/users/**", "/employees/**", "/inventories/**").permitAll()
+//					.anyRequest().authenticated()
+					// 테스트를 위해 모든 요청 허용
+					.anyRequest().permitAll()
 			)
 			.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 

@@ -1,0 +1,15 @@
+package com.kwanwx.erp.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.kwanwx.erp.model.Sales;
+import com.kwanwx.erp.model.SalesDetail;
+
+@Mapper
+public interface SalesDetailMapper {
+	void insertSalesDetail(SalesDetail SalesDetail);
+	List<SalesDetail> selectSalesDetailsBySalesId(@Param("salesId") String salesId);
+}

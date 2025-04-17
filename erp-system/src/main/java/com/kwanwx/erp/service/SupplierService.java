@@ -34,4 +34,12 @@ public class SupplierService {
 	public List<Supplier> getAllSuppliers() {
 		return supplierMapper.selectAllSuppliers();
 	}
+	
+	public void updateSupplier(Supplier supplier) {
+		supplierMapper.updateSupplier(supplier);
+	}
+	
+	public void deleteSupplier(String supplierId) {
+		supplierMapper.deleteSupplier(supplierId);
+	}
 }

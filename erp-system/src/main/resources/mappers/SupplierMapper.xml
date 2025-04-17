@@ -21,4 +21,21 @@
 		select supplier_id, name, contact, email, address, description
 		from erp_supplier
 	</select>
+	
+	<!-- 공급업체 정보 수정 -->
+	<update id='updateSupplier' parameterType="com.kwanwx.erp.model.Supplier">
+		update erp_supplier
+		set name = #{name}
+			contact = #{contact}
+			email = #{email}
+			address = #{address}
+			description = #{description}
+		where supplier_id = #{supplierId}
+	</update>
+	
+	<!-- 공급업체 삭제 -->
+	<delete id="deleteSupplier" parameterType="string">
+		delete from erp_supplier
+		where supplier_id = #{supplierId}
+	</delete>
 </mapper>

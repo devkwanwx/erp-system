@@ -12,4 +12,6 @@ public interface SupplierMapper {
 	void insertSupplier(Supplier supplier);
 	Supplier selectSupplierById(@Param("supplierId") String supplierId);
 	List<Supplier> selectAllSuppliers();
+	void updateSupplier(Supplier supplier);
+	void deleteSupplier(@Param("supplierId") String supplierId);
 }

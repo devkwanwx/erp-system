@@ -26,7 +26,7 @@
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="NewClassCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="704"/>
+		<item key="DIALOG_X_ORIGIN" value="166"/>
 		<item key="DIALOG_Y_ORIGIN" value="225"/>
 		<item key="DIALOG_WIDTH" value="561"/>
 		<item key="DIALOG_HEIGHT" value="625"/>
@@ -35,9 +35,11 @@
 	<section name="completion_proposal_size">
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item key="size.x" value="406"/>
+		<item key="size.y" value="237"/>
 	</section>
 	<section name="NewInterfaceCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="704"/>
+		<item key="DIALOG_X_ORIGIN" value="157"/>
 		<item key="DIALOG_Y_ORIGIN" value="225"/>
 		<item key="DIALOG_WIDTH" value="570"/>
 		<item key="DIALOG_HEIGHT" value="528"/>

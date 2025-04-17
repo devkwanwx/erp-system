@@ -6,15 +6,39 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="transactionId"/>
 		<list key="findhistory">
+			<item value="accountingId"/>
+			<item value="accounting_id"/>
+			<item value="erp_Accounting"/>
+			<item value="직원"/>
+			<item value="Employee"/>
+			<item value="purchase"/>
+			<item value="erp_purchase"/>
+			<item value="customer"/>
+			<item value="고객"/>
+			<item value="supplier"/>
+			<item value="description"/>
 			<item value="access denied"/>
 		</list>
 		<list key="replacehistory">
+			<item value="transactionId"/>
+			<item value="transaction_id"/>
+			<item value="erp_accounting"/>
+			<item value="회계 거래"/>
+			<item value="Accounting"/>
+			<item value="Sales"/>
+			<item value="sales"/>
+			<item value="erp_sales"/>
+			<item value="Purchase"/>
+			<item value="purchase"/>
+			<item value="구매"/>
+			<item value="customer"/>
+			<item value="registration_date"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="807"/>
+		<item key="DIALOG_X_ORIGIN" value="406"/>
 		<item key="DIALOG_Y_ORIGIN" value="276"/>
 		<item key="DIALOG_WIDTH" value="319"/>
 		<item key="DIALOG_HEIGHT" value="370"/>

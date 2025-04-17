@@ -38,7 +38,7 @@ create table erp_inventory (
 select * from erp_inventory;
 
 --------------------------------------------------------------------------------
-
+select * from erp_supplier;
 create table erp_supplier (
     supplier_id varchar2(50) primary key,
     name varchar2(255),
@@ -89,4 +89,17 @@ create table erp_sales_detail (
     price number(10, 2),
     primary key (sales_id, inventory_id),
     constraint fk_sd_sales foreign key (sales_id) references erp_sales(sales_id)
+);
+
+--------------------------------------------------------------------------------
+
+create table erp_accounting (
+    transaction_id varchar2(50) primary key,
+    transaction_date date,
+    employee_id varchar2(50),
+    department_id varchar2(50),
+    amount number(10, 2),
+    transaction_type varchar2(50),
+    description varchar2(500),
+    constraint fk_accounting_employee foreign key (employee_id) references erp_employee(employee_id)
 );

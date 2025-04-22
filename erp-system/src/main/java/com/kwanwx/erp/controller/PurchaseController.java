@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Purchase;
@@ -49,8 +51,9 @@ public class PurchaseController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<ApiResponse<List<Purchase>>> getAllPurchases() {
-		List<Purchase> purchases = purchaseService.getAllPurchases();
+	public ResponseEntity<ApiResponse<PageInfo<Purchase>>> getAllPurchases(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "purchaseId, asc") String sort) {
+		PageInfo<Purchase> purchases = purchaseService.getAllPurchases(page, size, sort);
 		
 		return ResponseEntity.ok(ApiResponse.of(purchases));
 	}

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Supplier;
@@ -51,8 +53,9 @@ public class SupplierController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<ApiResponse<List<Supplier>>> getAllSuppliers() {
-		List<Supplier> suppliers = supplierService.getAllSuppliers();
+	public ResponseEntity<ApiResponse<PageInfo<Supplier>>> getAllSuppliers(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "supplierId, asc") String sort) {
+		PageInfo<Supplier> suppliers = supplierService.getAllSuppliers(page, size, sort);
 		
 		return ResponseEntity.ok(ApiResponse.of(suppliers));
 	}

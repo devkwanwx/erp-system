@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Sales;
@@ -43,8 +44,9 @@ public class SalesController {
     }
     
     @GetMapping
-    public ResponseEntity<ApiResponse<List<Sales>>> getAllSales() {
-        List<Sales> salesList = salesService.getAllSales();
+    public ResponseEntity<ApiResponse<PageInfo<Sales>>> getAllSales(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "salesId, asc") String sort) {
+    	PageInfo<Sales> salesList = salesService.getAllSales(page, size, sort);
 
         return ResponseEntity.ok(ApiResponse.of(salesList));
     }

@@ -11,7 +11,7 @@ import com.kwanwx.erp.model.Employee;
 public interface EmployeeMapper {
 	void insertEmployee(Employee employee);
 	Employee selectEmployeeById(@Param("employeeId") String employeeId);
-	List<Employee> selectAllEmployees();
+	List<Employee> selectEmployeesByCriteria(@Param("nameFilter") String nameFilter, @Param("departmentFilter") String departmentFilter);
 	void updateEmployee(Employee employee);
 	void deleteEmployee(@Param("employeeId") String employeeId);
 }

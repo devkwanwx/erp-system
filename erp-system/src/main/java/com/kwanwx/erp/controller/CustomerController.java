@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.model.Customer;
 import com.kwanwx.erp.service.CustomerService;
@@ -48,8 +50,9 @@ public class CustomerController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<ApiResponse<List<Customer>>> getAllCustomers() {
-		List<Customer> customers = customerService.getAllCustomers();
+	public ResponseEntity<ApiResponse<PageInfo<Customer>>> getAllCustomers(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "customerId, asc") String sort) {
+		PageInfo<Customer> customers = customerService.getAllCustomers(page, size, sort);
 		
 		return ResponseEntity.ok(ApiResponse.of(customers));
 	}

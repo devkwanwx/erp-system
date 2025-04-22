@@ -6,7 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.mapper.InventoryMapper;
+import com.kwanwx.erp.model.Employee;
 import com.kwanwx.erp.model.Inventory;
 
 @Service
@@ -34,8 +37,11 @@ public class InventoryService {
 	}
 	
 	// 전체 재고 조회
-	public List<Inventory> getAlInventories() {
-		return inventoryMapper.selectAllInventories();
+	public PageInfo<Inventory> getAlInventories(int page, int size, String sort) {
+		PageHelper.startPage(page, size, sort);
+		List<Inventory> list = inventoryMapper.selectAllInventories();
+		
+		return new PageInfo<>(list);
 	}
 	
 	// 재고 정보 수정

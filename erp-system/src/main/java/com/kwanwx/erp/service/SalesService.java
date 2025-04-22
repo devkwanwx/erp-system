@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.mapper.SalesMapper;
+import com.kwanwx.erp.model.Employee;
 import com.kwanwx.erp.model.Sales;
 
 @Service
@@ -28,7 +32,10 @@ public class SalesService {
         return salesMapper.selectSalesById(salesId);
     }
     
-    public List<Sales> getAllSales() {
-        return salesMapper.selectAllSales();
+    public PageInfo<Sales> getAllSales(int page, int size, String sort) {
+    	PageHelper.startPage(page, size, sort);
+		List<Sales> list = salesMapper.selectAllSales();
+		
+		return new PageInfo<>(list);
     }
 }

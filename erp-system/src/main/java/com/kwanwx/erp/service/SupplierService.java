@@ -6,7 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.mapper.SupplierMapper;
+import com.kwanwx.erp.model.Employee;
 import com.kwanwx.erp.model.Supplier;
 
 @Service
@@ -31,8 +34,11 @@ public class SupplierService {
 		return supplierMapper.selectSupplierById(supplierId);
 	}
 	
-	public List<Supplier> getAllSuppliers() {
-		return supplierMapper.selectAllSuppliers();
+	public PageInfo<Supplier> getAllSuppliers(int page, int size, String sort) {
+		PageHelper.startPage(page, size, sort);
+		List<Supplier> list = supplierMapper.selectAllSuppliers();
+		
+		return new PageInfo<>(list);
 	}
 	
 	public void updateSupplier(Supplier supplier) {

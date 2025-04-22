@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.mapper.InventoryMapper;
 import com.kwanwx.erp.model.Accounting;
@@ -55,8 +57,9 @@ public class InventoryController {
 	
 	//전체 재고 조회
 	@GetMapping
-	public ResponseEntity<ApiResponse<List<Inventory>>> getAllInventories() {
-		List<Inventory> inventories = inventoryService.getAlInventories();
+	public ResponseEntity<ApiResponse<PageInfo<Inventory>>> getAllInventories(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "inventoryId, asc") String sort) {
+		PageInfo<Inventory> inventories = inventoryService.getAlInventories(page, size, sort);
 		
 		return ResponseEntity.ok(ApiResponse.of(inventories));
 	}

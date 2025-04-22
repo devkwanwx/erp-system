@@ -6,8 +6,11 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.mapper.AccountingMapper;
 import com.kwanwx.erp.model.Accounting;
+import com.kwanwx.erp.model.Employee;
 
 @Service
 public class AccountingService {
@@ -34,8 +37,11 @@ public class AccountingService {
 	}
 	
 	// 전체 회계 거래 조회
-	public List<Accounting> getAllAccountings() {
-		return accountingMapper.selectAllAccountings();
+	public PageInfo<Accounting> getAllAccountings(int page, int size, String sort) {
+		PageHelper.startPage(page, size, sort);
+		List<Accounting> list = accountingMapper.selectAllAccountings();
+		
+		return new PageInfo<>(list);
 	}
 	
 	// 회계 거래 수정

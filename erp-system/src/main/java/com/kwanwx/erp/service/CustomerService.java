@@ -6,8 +6,11 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kwanwx.erp.mapper.CustomerMapper;
 import com.kwanwx.erp.model.Customer;
+import com.kwanwx.erp.model.Employee;
 
 @Service
 public class CustomerService {
@@ -31,7 +34,10 @@ public class CustomerService {
 		return customerMapper.selectCustomerById(customerId);
 	}
 	
-	public List<Customer> getAllCustomers() {
-		return customerMapper.selectAllCustomers();
+	public PageInfo<Customer> getAllCustomers(int page, int size, String sort) {
+		PageHelper.startPage(page, size, sort);
+		List<Customer> list = customerMapper.selectAllCustomers();
+		
+		return new PageInfo<>(list);
 	}
 }

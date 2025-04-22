@@ -3,6 +3,7 @@ package com.kwanwx.erp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Employee;
 import com.kwanwx.erp.service.EmployeeService;
 
@@ -29,47 +32,49 @@ public class EmployeeController {
 
 	// 직원 등록 API
 	@PostMapping("/register")
-	public ResponseEntity<String> registerEmployee(@RequestBody Employee employee) {
+	public ResponseEntity<ApiResponse<Employee>> registerEmployee(@RequestBody Employee employee) {
 		employeeService.registerEmployee(employee);
 
-		return ResponseEntity.ok("직원 등록이 완료 되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(employee));
 	}
 
 	// 단일 직원 조회 API
 	@GetMapping("/{employeeId}")
-	public ResponseEntity<Employee> getEmployee(@PathVariable String employeeId) {
+	public ResponseEntity<ApiResponse<Employee>> getEmployee(@PathVariable String employeeId) {
 		Employee employee = employeeService.getEmployeeById(employeeId);
 
 		if (employee != null) {
-			return ResponseEntity.ok(employee);
+			return ResponseEntity.ok(ApiResponse.of(employee));
 		}
-
-		return ResponseEntity.notFound().build();
+		
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("직원을 찾을 수 없습니다."));
 	}
 
 	// 전체 직원 조회 API
 	@GetMapping
-	public ResponseEntity<List<Employee>> getAllEmployee() {
+	public ResponseEntity<ApiResponse<List<Employee>>> getAllEmployee() {
 		List<Employee> employees = employeeService.getAllEmployees();
 
-		return ResponseEntity.ok(employees);
+		return ResponseEntity.ok(ApiResponse.of(employees));
 	}
 
 	// 직원 정보 수정 API
 	@PutMapping("/{employeeId}")
-	public ResponseEntity<String> updateEmployee(@PathVariable String employeeId, @RequestBody Employee employee) {
+	public ResponseEntity<ApiResponse<Employee>> updateEmployee(@PathVariable String employeeId, @RequestBody Employee employee) {
 		employee.setEmployeeId(employeeId);
 		employeeService.updateEmployee(employee);
 
-		return ResponseEntity.ok("직원 정보 수정이 완료 되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(employee));
 	}
 
 	// 직원 정보 삭제 API
 	@DeleteMapping("/{employeeId}")
-	public ResponseEntity<String> deleteEmployee(@PathVariable String employeeId) {
+	public ResponseEntity<ApiResponse<Void>> deleteEmployee(@PathVariable String employeeId) {
 		employeeService.deleteEmployee(employeeId);
 
-		return ResponseEntity.ok("직원 삭제가 완료 되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(null));
 	}
 }
 

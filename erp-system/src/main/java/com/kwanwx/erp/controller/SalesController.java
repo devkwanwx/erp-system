@@ -2,8 +2,12 @@ package com.kwanwx.erp.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Sales;
 import com.kwanwx.erp.service.SalesService;
 
@@ -19,23 +23,29 @@ public class SalesController {
     }
     
     @PostMapping("/register")
-    public ResponseEntity<String> registerSales(@RequestBody Sales sales) {
+    public ResponseEntity<ApiResponse<Sales>> registerSales(@RequestBody Sales sales) {
         salesService.registerSales(sales);
-        return ResponseEntity.ok("판매 등록이 완료되었습니다.");
+
+        return ResponseEntity.ok(ApiResponse.of(sales));
     }
     
     @GetMapping("/{salesId}")
-    public ResponseEntity<Sales> getSales(@PathVariable String salesId) {
+    public ResponseEntity<ApiResponse<Sales>> getSales(@PathVariable String salesId) {
         Sales sales = salesService.getSalesById(salesId);
+
         if (sales != null) {
-            return ResponseEntity.ok(sales);
-        }
-        return ResponseEntity.notFound().build();
+			return ResponseEntity.ok(ApiResponse.of(sales));
+		}
+		
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("판매 내역을 찾을 수 없습니다."));
     }
     
     @GetMapping
-    public ResponseEntity<List<Sales>> getAllSales() {
+    public ResponseEntity<ApiResponse<List<Sales>>> getAllSales() {
         List<Sales> salesList = salesService.getAllSales();
-        return ResponseEntity.ok(salesList);
+
+        return ResponseEntity.ok(ApiResponse.of(salesList));
     }
 }

@@ -1,0 +1,25 @@
+package com.kwanwx.erp.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ApiResponse<T> {
+	private boolean success; // 처리 성공 여부
+	private String message; //에러 메시지 또는 부가 설명
+	private T data; // 실제 payload
+	
+	// 성공 응답 헬퍼
+	public static <T> ApiResponse<T> of(T data) {
+		return new ApiResponse<>(true, null, data);
+	}
+	
+	// 실패 응답 헬퍼
+	public static <T> ApiResponse<T> error(String message) {
+		return new ApiResponse<>(false, message, null);
+	}
+}

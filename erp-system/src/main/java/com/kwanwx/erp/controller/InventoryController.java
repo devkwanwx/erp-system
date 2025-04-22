@@ -3,6 +3,7 @@ package com.kwanwx.erp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.mapper.InventoryMapper;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Inventory;
 import com.kwanwx.erp.service.InventoryService;
 
@@ -30,47 +33,49 @@ public class InventoryController {
 	
 	// 재고 등록
 	@PostMapping("/register")
-	public ResponseEntity<String> registerInventory(@RequestBody Inventory inventory) {
+	public ResponseEntity<ApiResponse<Inventory>> registerInventory(@RequestBody Inventory inventory) {
 		inventoryService.registerInventory(inventory);
 		
-		return ResponseEntity.ok("재고 등록이 완료되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(inventory));
 	}
 	
 	// 단일 재고 조회
 	@GetMapping("/{inventoryId}")
-	public ResponseEntity<Inventory> getInventory(@PathVariable String inventoryId) {
+	public ResponseEntity<ApiResponse<Inventory>> getInventory(@PathVariable String inventoryId) {
 		Inventory inventory = inventoryService.getInventoryById(inventoryId);
 		
 		if (inventory != null) {
-			return ResponseEntity.ok(inventory);
+			return ResponseEntity.ok(ApiResponse.of(inventory));
 		}
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("재고를 찾을 수 없습니다."));
 	}
 	
 	//전체 재고 조회
 	@GetMapping
-	public ResponseEntity<List<Inventory>> getAllInventories() {
+	public ResponseEntity<ApiResponse<List<Inventory>>> getAllInventories() {
 		List<Inventory> inventories = inventoryService.getAlInventories();
 		
-		return ResponseEntity.ok(inventories);
+		return ResponseEntity.ok(ApiResponse.of(inventories));
 	}
 	
 	// 재고 정보 수정
 	@PutMapping("/{inventoryId}")
-	public ResponseEntity<String> updateInventory(@PathVariable String inventoryId, @RequestBody Inventory inventory) {
+	public ResponseEntity<ApiResponse<Inventory>> updateInventory(@PathVariable String inventoryId, @RequestBody Inventory inventory) {
 		inventory.setInventoryId(inventoryId);
 		inventoryService.updateInventory(inventory);
 		
-		return ResponseEntity.ok("재고 정보 수정이 완료되었습니다."); 
+		return ResponseEntity.ok(ApiResponse.of(inventory));
 	}
 	
 	// 재고 삭제
 	@DeleteMapping("/{inventoryId}")
-	public ResponseEntity<String> deleteInventory(@PathVariable String inventoryId) {
+	public ResponseEntity<ApiResponse<Void>> deleteInventory(@PathVariable String inventoryId) {
 		inventoryService.deleteInventory(inventoryId);
 		
-		return ResponseEntity.ok("재고 삭제가 완료되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(null));
 	}
 }
 

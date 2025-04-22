@@ -28,7 +28,6 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.controller.SupplierController"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.service.SupplierService"/>
-    <fullyQualifiedTypeName name="com.kwanwx.erp.model.Supplier"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.mapper.CustomerMapper"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.controller.CustomerController"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.service.CustomerService"/>
@@ -42,7 +41,6 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.mapper.AccountingMapper"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
@@ -53,11 +51,13 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.model.Accounting"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="com.kwanwx.erp.service.AccountingService"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
+    <fullyQualifiedTypeName name="com.kwanwx.erp.model.Supplier"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 </qualifiedTypeNameHistroy>

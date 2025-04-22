@@ -1,5 +1,0 @@
-package com.kwanwx.erp.security;
-
-public class JwtAuthenticationFilter {
-
-}

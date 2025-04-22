@@ -3,6 +3,7 @@ package com.kwanwx.erp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.model.Customer;
 import com.kwanwx.erp.service.CustomerService;
 
@@ -26,27 +28,29 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerCustomer(@RequestBody Customer customer) {
+	public ResponseEntity<ApiResponse<Customer>> registerCustomer(@RequestBody Customer customer) {
 		customerService.registerCustomer(customer);
 		
-		return ResponseEntity.ok("고객 등록이 완료되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(customer));
 	}
 	
 	@GetMapping("/{customerId}")
-	public ResponseEntity<Customer> getCustomer(@PathVariable String customerId) {
+	public ResponseEntity<ApiResponse<Customer>> getCustomer(@PathVariable String customerId) {
 		Customer customer = customerService.getCustomerById(customerId);
 		
 		if (customer != null) {
-			return ResponseEntity.ok(customer);
+			return ResponseEntity.ok(ApiResponse.of(customer));
 		}
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("고객을 찾을 수 없습니다."));
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Customer>> getAllCustomers() {
+	public ResponseEntity<ApiResponse<List<Customer>>> getAllCustomers() {
 		List<Customer> customers = customerService.getAllCustomers();
 		
-		return ResponseEntity.ok(customers);
+		return ResponseEntity.ok(ApiResponse.of(customers));
 	}
 }

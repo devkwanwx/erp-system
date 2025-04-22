@@ -1,0 +1,44 @@
+package com.kwanwx.erp.config;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.exception.ResourceNotFoundException;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	// 검증 에러 (Bean Validation)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<ApiResponse<Void>> handleValidation(MethodArgumentNotValidException ex) {
+		String message = ex.getBindingResult()
+							.getFieldErrors()
+							.stream()
+							.map(err -> err.getField() + ": " + err.getDefaultMessage())
+							.findFirst()
+							.orElse(ex.getMessage());
+		return ResponseEntity
+				.badRequest()
+				.body(ApiResponse.error(message));
+	}
+	
+	// 리소스가 없을 때
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<ApiResponse<Void>> handleNotFound(ResourceNotFoundException ex) {
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error(ex.getMessage()));
+	}
+	
+	// 그 외의 예외
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ApiResponse<Void>> handleAll(Exception ex) {
+		return ResponseEntity
+				.status(HttpStatus.INTERNAL_SERVER_ERROR)
+				.body(ApiResponse.error("서버 오류가 발생했습니다."));
+	}
+}

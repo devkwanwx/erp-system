@@ -1,0 +1,80 @@
+package com.kwanwx.erp.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kwanwx.erp.model.Accounting;
+import com.kwanwx.erp.service.AccountingService;
+
+@RestController
+@RequestMapping("/accountings")
+public class AccountingController {
+
+	private final AccountingService accountingService;
+	
+	@Autowired
+	public AccountingController(AccountingService accountingService) {
+		this.accountingService = accountingService;
+	}
+	
+	// 회계 거래 등록
+	@PostMapping("/register")
+	public ResponseEntity<String> registerAccounting(@RequestBody Accounting accounting) {
+		accountingService.registerAccounting(accounting);
+		
+		return ResponseEntity.ok("회계 거래 등록이 완료되었습니다.");
+	}
+	
+	// 단일 회계 거래 조회
+	@GetMapping("/{transactionId}")
+	public ResponseEntity<Accounting> getAccounting(@PathVariable String transactionId) {
+		Accounting accounting = accountingService.getAccountingById(transactionId);
+		
+		if (accounting != null) {
+			return ResponseEntity.ok(accounting);
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	// 전체 회계 거래 조회
+	@GetMapping
+	public ResponseEntity<List<Accounting>> getAllAccountings() {
+		List<Accounting> list = accountingService.getAllAccountings();
+		
+		return ResponseEntity.ok(list);
+	}
+	
+	// 회계 거래 수정
+	@PutMapping("/{transactionId}")
+	public ResponseEntity<String> updateAccounting(@PathVariable String transactionId, @RequestBody Accounting accounting) {
+		accounting.setTransactionId(transactionId);
+		accountingService.updateAccounting(accounting);
+		
+		return ResponseEntity.ok("회계 거래 수정이 완료되었습니다.");
+	}
+	
+	// 회계 거래 삭제
+	@DeleteMapping("/{transactionId}")
+	public ResponseEntity<String> deleteAccounting(@PathVariable String transactionId) {
+		accountingService.deleteAccounting(transactionId);
+		
+		return ResponseEntity.ok("회계 거래 삭제가 완료되었습니다.");
+	}
+}
+
+
+
+
+
+

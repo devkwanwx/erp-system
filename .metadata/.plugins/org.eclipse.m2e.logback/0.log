@@ -1350,3 +1350,95 @@
 2025-04-17 19:17:20,773 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-04-17 19:17:20,782 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
 2025-04-17 19:17:20,789 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-17 19:21:43,015 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-17 19:21:43,025 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-17 19:21:43,032 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-21 12:30:10,034 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-04-22 11:27:54,844 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-04-22 11:28:40,070 [Worker-13: Launching erp-system - ErpSystemApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:28:40,084 [Worker-13: Launching erp-system - ErpSystemApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:28:40,098 [Worker-13: Launching erp-system - ErpSystemApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:30:44,974 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:30:44,990 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:30:44,996 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:34:59,051 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:34:59,065 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:34:59,075 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:44:51,807 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:44:51,819 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:44:51,829 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:47:52,441 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:47:52,453 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:47:52,468 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:48:49,049 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:48:49,059 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:48:49,070 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:51:22,385 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:51:22,393 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:51:22,403 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:53:14,380 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:53:14,390 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:53:14,402 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:53:16,640 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:53:16,646 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:53:16,654 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:53:33,218 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:53:33,227 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:53:33,239 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:53:54,658 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:53:54,666 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:53:54,677 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:56:15,679 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:56:15,693 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:56:15,702 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:56:20,947 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:56:20,957 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:56:20,967 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:58:06,027 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:58:06,035 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:58:06,046 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:58:38,644 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:58:38,651 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:58:38,660 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 11:59:33,977 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 11:59:33,984 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 11:59:33,994 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:01:14,662 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:01:14,673 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:01:14,681 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:02:46,588 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:02:46,596 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:02:46,604 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:05:02,170 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:05:02,180 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:05:02,189 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:13:44,432 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:13:44,442 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:13:44,450 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:15:07,694 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:15:07,700 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:15:07,708 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:30:59,362 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:30:59,375 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:30:59,391 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:42:53,924 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:42:53,938 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:42:53,948 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:42:55,396 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:42:55,403 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:42:55,413 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:46:13,547 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:46:13,559 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:46:13,567 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:47:01,868 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:47:01,876 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:47:01,884 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 12:47:23,515 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 12:47:23,525 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 12:47:23,541 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 13:04:15,681 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 13:04:15,689 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 13:04:15,695 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources
+2025-04-22 13:04:20,653 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-04-22 13:04:20,661 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 10 resources from src\main\resources to target\classes
+2025-04-22 13:04:20,672 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\dev\Project\work_erp\erp-system\src\test\resources

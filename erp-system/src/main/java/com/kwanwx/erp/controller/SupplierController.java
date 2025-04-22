@@ -3,6 +3,7 @@ package com.kwanwx.erp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Supplier;
 import com.kwanwx.erp.service.SupplierService;
 
@@ -28,42 +31,44 @@ public class SupplierController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerSupplier(@RequestBody Supplier supplier) {
+	public ResponseEntity<ApiResponse<Supplier>> registerSupplier(@RequestBody Supplier supplier) {
 		supplierService.registerSupplier(supplier);
 		
-		return ResponseEntity.ok("공급업체 등록이 완료되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(supplier));
 	}
 	
 	@GetMapping("/{supplierId}")
-	public ResponseEntity<Supplier> getSupplier(@PathVariable String supplierId) {
+	public ResponseEntity<ApiResponse<Supplier>> getSupplier(@PathVariable String supplierId) {
 		Supplier supplier = supplierService.getSupplierById(supplierId);
 		
 		if (supplier != null) {
-			return ResponseEntity.ok(supplier);
+			return ResponseEntity.ok(ApiResponse.of(supplier));
 		}
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("공급업체를 찾을 수 없습니다."));
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Supplier>> getAllSuppliers() {
+	public ResponseEntity<ApiResponse<List<Supplier>>> getAllSuppliers() {
 		List<Supplier> suppliers = supplierService.getAllSuppliers();
 		
-		return ResponseEntity.ok(suppliers);
+		return ResponseEntity.ok(ApiResponse.of(suppliers));
 	}
 	
 	@PutMapping("/{supplierId}")
-    public ResponseEntity<String> updateSupplier(@PathVariable String supplierId, @RequestBody Supplier supplier) {
+    public ResponseEntity<ApiResponse<Supplier>> updateSupplier(@PathVariable String supplierId, @RequestBody Supplier supplier) {
         supplier.setSupplierId(supplierId);
         supplierService.updateSupplier(supplier);
         
-        return ResponseEntity.ok("공급업체 정보가 수정되었습니다.");
+        return ResponseEntity.ok(ApiResponse.of(supplier));
     }
 
     @DeleteMapping("/{supplierId}")
-    public ResponseEntity<String> deleteSupplier(@PathVariable String supplierId) {
+    public ResponseEntity<ApiResponse<Void>> deleteSupplier(@PathVariable String supplierId) {
         supplierService.deleteSupplier(supplierId);
         
-        return ResponseEntity.ok("공급업체가 삭제되었습니다.");
+        return ResponseEntity.ok(ApiResponse.of(null));
     }
 }

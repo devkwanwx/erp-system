@@ -4,6 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.SalesDetail;
 import com.kwanwx.erp.service.SalesDetailService;
 
@@ -19,14 +22,16 @@ public class SalesDetailController {
     }
     
     @PostMapping("/register")
-    public ResponseEntity<String> registerSalesDetail(@RequestBody SalesDetail salesDetail) {
+    public ResponseEntity<ApiResponse<SalesDetail>> registerSalesDetail(@RequestBody SalesDetail salesDetail) {
         salesDetailService.registerSalesDetail(salesDetail);
-        return ResponseEntity.ok("판매 상세 등록이 완료되었습니다.");
+
+        return ResponseEntity.ok(ApiResponse.of(salesDetail));
     }
     
     @GetMapping("/{salesId}")
-    public ResponseEntity<List<SalesDetail>> getSalesDetails(@PathVariable String salesId) {
+    public ResponseEntity<ApiResponse<List<SalesDetail>>> getSalesDetails(@PathVariable String salesId) {
         List<SalesDetail> details = salesDetailService.getSalesDetailsBySalesId(salesId);
-        return ResponseEntity.ok(details);
+
+        return ResponseEntity.ok(ApiResponse.of(details));
     }
 }

@@ -3,6 +3,7 @@ package com.kwanwx.erp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kwanwx.erp.dto.ApiResponse;
+import com.kwanwx.erp.model.Accounting;
 import com.kwanwx.erp.model.Purchase;
 import com.kwanwx.erp.service.PurchaseService;
 
@@ -26,27 +29,29 @@ public class PurchaseController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerPurchase(@RequestBody Purchase purchase) {
+	public ResponseEntity<ApiResponse<Purchase>> registerPurchase(@RequestBody Purchase purchase) {
 		purchaseService.registerPurchase(purchase);
 		
-		return ResponseEntity.ok("구매 등록이 완료되었습니다.");
+		return ResponseEntity.ok(ApiResponse.of(purchase));
 	}
 	
 	@GetMapping("/{purchaseId}")
-	public ResponseEntity<Purchase> getPurchase(@PathVariable String purchaseId) {
+	public ResponseEntity<ApiResponse<Purchase>> getPurchase(@PathVariable String purchaseId) {
 		Purchase purchase = purchaseService.getPurchaseById(purchaseId);
 		
 		if (purchase != null) {
-			return ResponseEntity.ok(purchase);
+			return ResponseEntity.ok(ApiResponse.of(purchase));
 		}
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity
+				.status(HttpStatus.NOT_FOUND)
+				.body(ApiResponse.error("구매 내역을 찾을 수 없습니다."));
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Purchase>> getAllPurchases() {
+	public ResponseEntity<ApiResponse<List<Purchase>>> getAllPurchases() {
 		List<Purchase> purchases = purchaseService.getAllPurchases();
 		
-		return ResponseEntity.ok(purchases);
+		return ResponseEntity.ok(ApiResponse.of(purchases));
 	}
 }

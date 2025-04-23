@@ -1,0 +1,5 @@
+package com.kwanwx.erp.aop;
+
+public class PerformanceLoggingingAspect {
+
+}

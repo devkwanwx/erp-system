@@ -6,7 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="transactionId"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
 			<item value="accountingId"/>
 			<item value="accounting_id"/>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="EmployeeControllerIntegrationTest" project="erp-system" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.kwanwx.erp.controller.EmployeeControllerIntegrationTest" time="0.234" displayname="EmployeeControllerIntegrationTest" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.controller.EmployeeControllerIntegrationTest]">
-    <testcase name="getEmployee_notFound_whenExists" classname="com.kwanwx.erp.controller.EmployeeControllerIntegrationTest" time="0.234" displayname="getEmployee_notFound_whenExists()" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.controller.EmployeeControllerIntegrationTest]/[method:getEmployee_notFound_whenExists()]"/>
-  </testsuite>
-</testrun>

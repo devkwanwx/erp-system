@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="EmployeeServiceTest" project="erp-system" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.kwanwx.erp.service.EmployeeServiceTest" time="1.318" displayname="EmployeeServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.service.EmployeeServiceTest]">
+    <testcase name="getEmployeeById_shouldReturnFromMapper" classname="com.kwanwx.erp.service.EmployeeServiceTest" time="1.296" displayname="getEmployeeById_shouldReturnFromMapper()" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.service.EmployeeServiceTest]/[method:getEmployeeById_shouldReturnFromMapper()]"/>
+    <testcase name="registerEmployee_shouldKeepId_whenAlreadyPresent" classname="com.kwanwx.erp.service.EmployeeServiceTest" time="0.014" displayname="registerEmployee_shouldKeepId_whenAlreadyPresent()" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.service.EmployeeServiceTest]/[method:registerEmployee_shouldKeepId_whenAlreadyPresent()]"/>
+    <testcase name="registerEmployee_shouldGenerateUuid_whenIdIsNull" classname="com.kwanwx.erp.service.EmployeeServiceTest" time="0.007" displayname="registerEmployee_shouldGenerateUuid_whenIdIsNull()" uniqueid="[engine:junit-jupiter]/[class:com.kwanwx.erp.service.EmployeeServiceTest]/[method:registerEmployee_shouldGenerateUuid_whenIdIsNull()]"/>
+  </testsuite>
+</testrun>

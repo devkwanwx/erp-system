@@ -1,0 +1,56 @@
+package com.kwanwx.erp.service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import java.util.UUID;
+
+import com.kwanwx.erp.mapper.EmployeeMapper;
+import com.kwanwx.erp.model.Employee;
+
+public class EmployeeServiceTest {
+
+	@Mock
+	private EmployeeMapper employeeMapper;
+	
+	@InjectMocks
+	private EmployeeService employeeService;
+	
+	@BeforeEach
+	void setUp() {
+		MockitoAnnotations.openMocks(this);
+	}
+	
+	@Test
+	void registerEmployee_shouldGenerateUuid_whenIdIsNull() {
+		// given
+		Employee e = new Employee();
+		e.setEmployeeId(null);
+		e.setName("홍길동");
+		// when
+		employeeService.registerEmployee(e);
+		// then
+		assertThat(e.getEmployeeId())
+			.isNotNull()
+			.matches(id -> {
+				// UUID 형식인지 검사
+				try {
+					UUID.fromString(id);
+					return true;
+				}
+			});
+	}
+}
+
+
+
+
+
+
+
+
+

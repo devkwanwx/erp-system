@@ -1,0 +1,9 @@
+package com.kwanwx.erp.service;
+
+import com.kwanwx.erp.mapper.EmployeeMapper;
+
+public class EmployeeServiceTest {
+
+	
+	private EmployeeMapper employeeMapper;
+}

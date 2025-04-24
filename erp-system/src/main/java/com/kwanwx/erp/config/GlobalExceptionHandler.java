@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.kwanwx.erp.dto.ApiResponse;
 import com.kwanwx.erp.exception.ResourceNotFoundException;
 
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.kwanwx.erp.controller")
 public class GlobalExceptionHandler {
 
 	// 검증 에러 (Bean Validation)

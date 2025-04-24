@@ -26,7 +26,7 @@
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="NewClassCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="704"/>
+		<item key="DIALOG_X_ORIGIN" value="164"/>
 		<item key="DIALOG_Y_ORIGIN" value="225"/>
 		<item key="DIALOG_WIDTH" value="561"/>
 		<item key="DIALOG_HEIGHT" value="625"/>

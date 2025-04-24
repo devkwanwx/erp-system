@@ -5,31 +5,34 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kwanwx.erp.dto.ApiResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.kwanwx.erp.controller")
 public class ApiResponseWrapperAdvice implements ResponseBodyAdvice<Object> {
 	
 	@Override
-	public boolean supports(MethodParameter returnType, Class converterType) {
+	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
 		
 		// ApiResponse로 이미 감싸진 것은 다시 감싸지 않도록 필터링
-		return !returnType.getParameterType().equals(ApiResponse.class);
+		return MappingJackson2HttpMessageConverter.class.isAssignableFrom(converterType)
+				&& !ApiResponse.class.isAssignableFrom(returnType.getParameterType());
 	}
 
 	@Override
 	public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
-			Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+			Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 		
 		// null 응답은 빈 선공으로
 		if (body == null) {
